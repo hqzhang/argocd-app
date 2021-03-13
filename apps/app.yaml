@@ -7,10 +7,15 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: kustomize-guestbook
-    server: {{ .Values.spec.destination.server }}
+    namespace: kustomize-nginx
+    server: https://kubernetes.default.svc
   project: default
   source:
-    path: kustomize-guestbook
-    repoURL: https://github.com/hqzhang/
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: overlays/dev
+    repoURL: https://github.com/hqzhang/argocdtest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+
