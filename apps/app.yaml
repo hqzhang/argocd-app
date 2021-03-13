@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kust-nginx
+  name: myproject
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: kustomize-nginx
+    namespace: myproject
     server: https://kubernetes.default.svc
   project: default
   source:
