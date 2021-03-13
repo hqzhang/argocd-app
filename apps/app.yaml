@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: overlays/dev
-    repoURL: https://github.com/hqzhang/argocdtest.git
-    targetRevision: HEAD
+    path: argo/example-app
+    repoURL: https://github.com/marcel-dempers/docker-development-youtube-series.git
+    targetRevision: master
   syncPolicy:
     automated:
       prune: false
