@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myproject
+  name: custom
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: myproject
+    namespace: custom
     server: https://kubernetes.default.svc
-  project: default
+  project: ami-project
   source:
-    path: base
-    repoURL: https://github.com/hqzhang/argocdtest.git
+    path: dev/dc1/custom
+    repoURL: https://github.com/hqzhang/argocd-overlay.git
     targetRevision: master
   syncPolicy:
     automated:
